@@ -1,5 +1,11 @@
 extends layout
 
 block content
+  script(src="http://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.1.4/Chart.min.js")
   h1= title
   p Welcome to #{title}
+  p #{results}
+  img#canvas
+  ul
+  each r in results
+    li= r.temperature

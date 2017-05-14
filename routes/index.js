@@ -1,9 +1,17 @@
 var express = require('express');
 var router = express.Router();
+var mongoose = require('mongoose');
+mongoose.connect(process.env.MONGO_URL);
 
-/* GET home page. */
+var Room = require('../models/room');
+
 router.get('/', function(req, res, next) {
-  res.render('index', { title: 'Express' });
+
+  Room.find({}, function(err, results) {
+      if (err)
+          res.send(err);
+      res.render('index', { title: 'Express' , results});
+  });
 });
 
 module.exports = router;
