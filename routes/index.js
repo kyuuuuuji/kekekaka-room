@@ -11,6 +11,7 @@ router.get('/', function(req, res, next) {
   Room.find({}, function(err, results) {
       if (err)
           res.send(err);
+      results = JSON.stringify(results);
       res.render('index', { title: 'Express' , results});
   });
 });
