@@ -27,15 +27,14 @@ block content
           label: 'temperature',
           data: temperature,
           backgroundColor: "rgba(153,255,51,0.4)"
-        }],
-        //- options:{
-        //-   animation:{
-      	//- 		duration:0
-        //-     onComplete:function(animation){
-        //-       console.log(ctx.toBase64Image());              
-        //-       document.getElementById('img').src = ctx.toBase64Image();
-        //-     }
-        //-   }
-        //- }
+        }]
+      },
+      options: {
+        animation: {
+          duration: 0,
+          onComplete:function(animation) {
+            document.getElementById('img').src = this.toBase64Image();
+          }
+        }
       }
     });
